@@ -4,7 +4,7 @@
  
 local Player,Mouse,mouse,UserInputService,ContextActionService = owner
 do
-    print("FE Compatibility code by Mokiros | Translated to FE by iPxter")
+    print("Made by BVVZ (lolboigghh) | TrapzFX")
     script.Parent = Player.Character
  
     --RemoteEvent for communicating
