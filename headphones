@@ -1,0 +1,203 @@
+---------------------------------------------------<(  Public Version  )>------------------------------------------------
+ 
+ 
+ 
+local Player,Mouse,mouse,UserInputService,ContextActionService = owner
+do
+    print("FE Compatibility code by Mokiros | Translated to FE by iPxter")
+    script.Parent = Player.Character
+ 
+    --RemoteEvent for communicating
+    local Event = Instance.new("RemoteEvent")
+    Event.Name = "UserInput_Event"
+ 
+    --Fake event to make stuff like Mouse.KeyDown work
+    local function fakeEvent()
+        local t = {_fakeEvent=true,Connect=function(self,f)self.Function=f end}
+        t.connect = t.Connect
+        return t
+    end
+ 
+    --Creating fake input objects with fake variables
+    local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
+    local UIS = {InputBegan=fakeEvent(),InputEnded=fakeEvent()}
+    local CAS = {Actions={},BindAction=function(self,name,fun,touch,...)
+        CAS.Actions[name] = fun and {Name=name,Function=fun,Keys={...}} or nil
+    end}
+    --Merged 2 functions into one by checking amount of arguments
+    CAS.UnbindAction = CAS.BindAction
+ 
+    --This function will trigger the events that have been :Connect()'ed
+    local function te(self,ev,...)
+        local t = m[ev]
+        if t and t._fakeEvent and t.Function then
+            t.Function(...)
+        end
+    end
+    m.TrigEvent = te
+    UIS.TrigEvent = te
+ 
+    Event.OnServerEvent:Connect(function(plr,io)
+        if plr~=Player then return end
+        if io.isMouse then
+            m.Target = io.Target
+            m.Hit = io.Hit
+        else
+            local b = io.UserInputState == Enum.UserInputState.Begin
+            if io.UserInputType == Enum.UserInputType.MouseButton1 then
+                return m:TrigEvent(b and "Button1Down" or "Button1Up")
+            end
+            for _,t in pairs(CAS.Actions) do
+                for _,k in pairs(t.Keys) do
+                    if k==io.KeyCode then
+                        t.Function(t.Name,io.UserInputState,io)
+                    end
+                end
+            end
+            m:TrigEvent(b and "KeyDown" or "KeyUp",io.KeyCode.Name:lower())
+            UIS:TrigEvent(b and "InputBegan" or "InputEnded",io,false)
+        end
+    end)
+    Event.Parent = NLS([==[
+    local Player = game:GetService("Players").LocalPlayer
+    local Event = script:WaitForChild("UserInput_Event")
+ 
+    local UIS = game:GetService("UserInputService")
+    local input = function(io,a)
+        if a then return end
+        --Since InputObject is a client-side instance, we create and pass table instead
+        Event:FireServer({KeyCode=io.KeyCode,UserInputType=io.UserInputType,UserInputState=io.UserInputState})
+    end
+    UIS.InputBegan:Connect(input)
+    UIS.InputEnded:Connect(input)
+ 
+    local Mouse = Player:GetMouse()
+    local h,t
+    --Give the server mouse data 30 times every second, but only if the values changed
+    --If player is not moving their mouse, client won't fire events
+    while wait(1/30) do
+        if h~=Mouse.Hit or t~=Mouse.Target then
+            h,t=Mouse.Hit,Mouse.Target
+            Event:FireServer({isMouse=true,Target=t,Hit=h})
+        end
+    end]==],Player.Character)
+    Mouse,mouse,UserInputService,ContextActionService = m,m,UIS,CAS
+end
+ 
+ 
+--
+--      _________________
+--     |______  *  ______|
+--            | * |
+--            | R |
+--            | A |
+--            | P |
+--            | Z |
+--            | F |
+--            | X |
+--            | _ |
+--            | A |
+--            | L |
+--            | T |
+--            |___|
+ 
+--------------------------------\
+--      C O M M A N D S       --|
+--------------------------------/
+ 
+--say ID/ and then the audio id to change music id.
+ 
+-------------------------------------\
+--    C O M M A N D S   E N D      --|
+-------------------------------------/
+ 
+if game:GetService("RunService"):IsClient() then error("Script Error (721) Please use h/ not hl/ . Thank you For Reading, - TrapzFX.") end
+ 
+print('<< I N S H M   V1.5 by TrapzFX loaded! >>')
+print('Pronounced: In-s-hm')
+print('<< U P D A T E    L O G >>')
+ 
+print('Added a new fixed command. See under these messages for the fixed command.')
+print('3/18/2021; Hello. Scripts have been fixed, Commands have been removed, New fixed commands such as; Play, Pause, And Restart.. Coming soon!')
+print('<<  L O G    E N D  >>')
+ 
+ 
+ 
+ 
+print('-- C O M M A N D S - -')
+print('Say ID/ And then the audio id.')
+ 
+print('<< SongStuff >>')
+print('Default Song: +♂ ver れをる')
+ 
+ 
+print('<< ! C O M M A N D S    F I X E D ! >>')
+ 
+ 
+ 
+-------------------------------------\
+--        V A R I A B L E S        --|
+-------------------------------------/
+ 
+ 
+ 
+plr = owner
+char = plr.Character
+hum = char.Humanoid
+humDesc = hum.HumanoidDescription
+torso = char.Torso
+head = char.Head
+BC = char["Body Colors"]
+Rleg = char["Right Leg"]
+Lleg = char["Left Leg"]
+Rarm = char["Right Arm"]
+Larm = char["Left Arm"]
+ 
+-------------------------------------\
+-- E N D   O F   V A R I A B L E S --|
+-------------------------------------/
+ 
+--================================--|
+ 
+-------------------------------------\
+--   A V A T A R   C H A N G E R   --|
+-------------------------------------/
+ 
+sound = Instance.new("Sound", head)
+sound.SoundId = "rbxassetid://"
+sound.Volume = 100
+sound:Play()
+sound.Looped = true
+Rleg.Material = "Forcefield"
+Lleg.Material = "Forcefield"
+Rarm.Material = "Forcefield"
+Larm.Material = "Forcefield"
+head.BrickColor = BrickColor.new("Dark stone grey")
+BC:Destroy()
+torso.BrickColor = BrickColor.new("Dark stone grey") --Note For TrapzFX_Alt-- If Grey Doesn't work, Then try gray.
+ 
+
+--------------------------------\
+--      C O M M A N D S       --|
+--------------------------------/
+ 
+plr.Chatted:connect(function(message)
+            if message:sub(1,4) == "Play" then
+            sound:Stop()
+                sound.SoundId = "http://www.roblox.com/asset/?id="..message:sub(6)
+    sound:Play()
+    end
+end)
+ 
+---------------------------------------------------------------\
+--              E N D     O F    C O M M A N D S             --|
+---------------------------------------------------------------/
+ 
+--==========================================================--|
+ 
+---------------------------------------------------------------\
+--         E N D    S C R I P T S   A N D   A N I M S        --|
+---------------------------------------------------------------/
+ 
+--==========================================================--|
+ 
